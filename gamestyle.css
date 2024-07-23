@@ -1,0 +1,450 @@
+/* General styles */
+body {
+    font-family: 'Kanit', sans-serif;
+    background-color: #08AEEA; 
+    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 200%);
+    background-color: rgba(255, 51, 51, 1);
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gameStarted .banner {
+    display: none !important;
+}
+
+.banner h1 {
+    font-size: 24px;
+    color: white;
+    margin: 0;
+    padding-top: 15px;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+}
+
+#instruction_text {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Game board border styles */
+.gameborder1 {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    border: 5px solid #000;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.gameborder2 {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameborder3 {
+    background-color: #000;
+    border: 5px solid #000;
+    border-radius: 5px;
+}
+
+#gameboard {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(20, 20px);
+    grid-template-rows: repeat(20, 20px);
+    gap: 1px;
+    background-color: #444;
+    border: 2px solid #333;
+    position: relative;
+    z-index: 2;
+    outline: none;
+}
+
+/* Snake styles */
+.snake {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32); /* More vivid gradient for body segments */
+    border-radius: 50%; /* Make the segments circular */
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    transition: transform 0.2s ease-in-out; /* Smooth transition */
+    animation: snakeGlow 2s infinite; /* Add glowing animation */
+}
+
+/* Snake head animation (flickering tongue) */
+.snake-head {
+    background: linear-gradient(135deg, #FFEB3B, #FBC02D); /* Base color */
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Shadow */
+}
+
+
+
+#score {
+    font-size: 50px;
+    color: #333;
+}
+
+.scores {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: white;
+}
+
+#score::before {
+    content: "Score: ";
+    font-weight: bold;
+}
+
+#heart-container {
+    position: absolute;
+    top: 10px;
+    left: 95px;
+    display: flex; 
+    gap: 5px;
+}
+
+.heart {
+    width: 75px;
+    height: 75px; 
+}
+
+/* Text background animation styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes slide1 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes slide2 {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.text-background {
+    overflow: hidden;
+    padding: 64px 0;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    z-index: -1;
+}
+
+.text-background-slider {
+    display: inline-block;
+    animation: 20s slide1 infinite linear;
+    width: auto;
+}
+
+.text-background-slider span,
+.text-background-slider-reversed span {
+    display: inline-block;
+    height: 70px;
+    margin: 0 20px;
+    line-height: 70px;
+    font-weight: bold;
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.text-background-slider-reversed {
+    display: inline-block;
+    animation: 20s slide2 infinite linear;
+    width: auto;
+}
+
+/* Pause button styles */
+#pauseButton {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+}
+
+/* Pause menu styles */
+.pause-menu {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    padding: 20px;
+    text-align: center; 
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    overflow: hidden; /* Ensure the content remains within the container */
+}
+
+.pause-menu .content-container {
+    background-color: #ffe4e1;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pause-menu h2 {
+    font-size: 48px;
+    color: #444;
+    margin-bottom: 40px; 
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pause-menu img {
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.2s;
+}
+
+.pause-menu img:hover {
+    transform: scale(1.1);
+}
+
+.button-wrapper span {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #444;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Hide game elements when the pause menu is active */
+.gamePaused .gameboard,
+.gamePaused .quiz-container,
+.gamePaused .scores,
+.gamePaused #heart-container,
+.gamePaused #pauseButton {
+    display: none;
+}
+
+/* Quiz container styles */
+.quiz-container {
+    position: fixed;
+    top: 250px; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 90%;
+    z-index: 1; 
+}
+
+.question-container {
+    width: 100%; 
+    background-color: rgba(255, 255, 255, 1);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 24px; 
+}
+
+.options-container {
+    width: 100%; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    z-index: 0;
+    margin-top: 30px; 
+}
+
+.option {
+    padding: 5%;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    text-align: center;
+    position: relative; 
+    overflow: hidden;
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-image {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; 
+    opacity: 0.5; 
+}
+
+.option-text {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #000; 
+}
+
+/* Pop-up content styles */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Darker background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 600px; /* Limit width */
+    font-size: 18px; /* Larger font size */
+    color: #333; /* Text color */
+    line-height: 1.5; /* Line spacing */
+}
+
+.popup-content h2 {
+    font-size: 32px; /* Larger heading size */
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.popup-content p {
+    font-size: 20px; /* Larger paragraph size */
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.popup-content ul {
+    text-align: left; /* Left-align the list */
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.popup-content li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #444;
+}
+
+#startGameButton {
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 100px; /* Larger button */
+    height: 100px;
+    padding: 0;
+    background: url('Images/resume.png') no-repeat center center; /* Use resume.png */
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#startGameButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Countdown screen styles */
+.countdown-screen {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 900; 
+}
+
+.countdown-screen h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 4rem;
+}
+

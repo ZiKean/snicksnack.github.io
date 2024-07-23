@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-Thin%EF%B9%96v=5648269379370034030.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Kanit';
+    font-style: italic;
+    font-weight: 100;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-ThinItalic%EF%B9%96v=13918276187583418437.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-ExtraLight%EF%B9%96v=8346276854906410690.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Kanit';
+    font-style: italic;
+    font-weight: 200;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-ExtraLightItalic%EF%B9%96v=3332537271380253751.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-Light%EF%B9%96v=15697562122233345652.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Kanit';
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-LightItalic%EF%B9%96v=16310062205210344131.woff2') format('woff2');
+  }
+  
+  @font-face {
+    font-family: 'Kanit';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-Regular%EF%B9%96v=4702120605075657825.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Kanit';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('cdn/shop/files/Kanit-Italic%EF%B9%96v=6076148009972036024.woff2') format('woff2');
+  }
+
+  body {
+    font-family: 'Kanit', sans-serif;
+  }
